@@ -1,14 +1,16 @@
 id: iqmessenger-detect
 
 info:
-  name: IQ Messenger - Detection
+  name: IQ Messenger - Detect
   author: darses
   severity: info
   description: |
     Detects the presence of IQ Messenger by identifying the root page, extracting the stylesheet filename printing the Last-Modified header of the stylesheet.
   metadata:
-    shodan-query: "http.favicon.hash:1033082340"
+    verified: true
     max-request: 2
+    shodan-query: http.favicon.hash:1033082340
+    vendor: IQ Messenger
   tags: tech,detect,iqmessenger
 
 http:
