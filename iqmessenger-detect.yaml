@@ -1,0 +1,43 @@
+id: iqmessenger-detect
+
+info:
+  name: IQ Messenger - Detection
+  author: darses
+  severity: info
+  description: |
+    Detects the presence of IQ Messenger by identifying the root page, extracting the stylesheet filename printing the Last-Modified header of the stylesheet.
+  metadata:
+    shodan-query: "http.favicon.hash:1033082340"
+    max-request: 2
+  tags: tech,detect,iqmessenger
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/ui"
+
+    matchers:
+      - type: word
+        part: body
+        internal: true
+        words:
+          - "<iqm-root>"
+
+    extractors:
+      - type: regex
+        name: stylesheet_filename
+        internal: true
+        part: body
+        regex:
+          - 'href="(styles\.\w+\.css)"'
+        group: 1
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/ui/{{stylesheet_filename}}"
+
+    extractors:
+      - type: kval
+        part: header
+        kval:
+          - last_modified
