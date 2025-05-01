@@ -18,7 +18,13 @@ http:
     path:
       - "{{BaseURL}}/ui"
 
+    matchers-condition: and
     matchers:
+      - type: status
+        internal: true
+        status:
+          - 200
+      
       - type: word
         part: body
         internal: true
