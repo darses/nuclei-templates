@@ -56,7 +56,7 @@
 
 ## fingerprinthub-web-fingerprints.yaml
 
-```
+```yaml
 - type: word
   part: header
   name: sagecom-tr069
@@ -70,4 +70,10 @@
   words:
     - '<title>FASTPANEL</title>'
   case-insensitive: true
+
+- type: word
+  part: body
+  name: axema-vaka
+  words:
+    - '<title>Vaka</title>'
 ```
