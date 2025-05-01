@@ -42,6 +42,16 @@
   name: "oracle-rest-data-services"
   dsl:
     - "status_code==200 && (\"1792417660\" == mmh3(base64_py(body)))"
+
+- type: dsl
+  name: "siemens-simatic-s7-1200"
+  dsl:
+    - "status_code==200 && (\"-1051205943\" == mmh3(base64_py(body)))"
+
+- type: dsl
+  name: "teltonika-networks"
+  dsl:
+    - "status_code==200 && (\"607493189\" == mmh3(base64_py(body)))"
 ```
 
 ## fingerprinthub-web-fingerprints.yaml
