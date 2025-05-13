@@ -21,7 +21,6 @@ http:
     extractors:
       - type: kval
         name: last_modified
-        internal: true
         kval:
           - last_modified
 
@@ -314,3 +313,13 @@ http:
         name: 11.10.0.4
         dsl:
           - status_code == 200 && last_modified=="Mon, 30 Oct 2023 11:37:08 GMT"
+
+      - type: dsl
+        name: 11.12.0.3
+        dsl:
+          - status_code == 200 && last_modified=="Sun, 14 Jul 2024 08:49:30 GMT"
+
+      - type: dsl
+        name: unknown
+        dsl:
+          - status_code == 200
