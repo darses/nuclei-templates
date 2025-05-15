@@ -9,13 +9,13 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.favicon.hash:1983356674
-    fofa-query: icon_hash="1983356674" || icon_hash="362091310"
+    fofa-query: icon_hash="1983356674"
     vendor: Ivanti
     product: Endpoint Manager Mobile 
   tags: detect,ivanti,epmm
 
 http:
-  - method: HEAD
+  - method: GET
     path:
       - "{{BaseURL}}/mifs/scripts/loginEvents.js"
       
