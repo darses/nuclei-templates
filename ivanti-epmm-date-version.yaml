@@ -9,6 +9,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.favicon.hash:1983356674
+    fofa-query: icon_hash="1983356674" || icon_hash="362091310"
     vendor: Ivanti
     product: Endpoint Manager Mobile 
   tags: detect,ivanti,epmm
@@ -23,14 +24,6 @@ http:
         name: last_modified
         kval:
           - last_modified
-
-      # For development purposes, parse major.minor version from static file URL. Note that this does not contain the patch number.
-      # GET "{{BaseURL}}/mifs/c/i/reg/reg.html"
-      # - type: regex
-      #   name: static_file_version
-      #   group: 1
-      #   regex:
-      #     - \/mifs\/css\/mdmreg\/common\.css\?([\d\.]+)
 
     stop-at-first-match: true
     matchers:     
