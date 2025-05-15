@@ -10,7 +10,7 @@ info:
     verified: true
     max-requests: 1
     shodan-query: http.favicon.hash:-1177777311
-    fofa-query: icon_hash="1428583669"
+    fofa-query: icon_hash="1428583669" || icon_hash="589927604" || icon_hash="1123106483" || icon_hash="1431756848" || icon_hash="1986563074"
     vendor: TOPDesk
   tags: tech,detect,topdesk
 
