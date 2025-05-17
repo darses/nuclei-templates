@@ -5,7 +5,7 @@ info:
   author: darses
   severity: info
   description: |
-    Retrieve Mitel MiCollab version from wapplink.asp
+    Retrieve Mitel MiCollab version from wapplink.asp. Unclear if this is present in all Mitel MiCollab server deployments.
   metadata:
     max-request: 1
     shodan-query: 
