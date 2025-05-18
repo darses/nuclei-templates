@@ -3866,6 +3866,11 @@ http:
         dsl:
           - "status_code==200 && (\"-1939892142\" == mmh3(base64_py(body)))"
 
+      - type: dsl
+        name: "enghouse-systems-lifesize"
+        dsl:
+          - "status_code==200 && (\"1463037400\" == mmh3(base64_py(body)))"
+
     extractors:
       - type: dsl
         dsl:
