@@ -8,7 +8,7 @@ info:
     Detect UserGate NGFW/UTM version based on Last-Modified date. Note that the default admin port on 8001/tcp is not easy to fingerprint, so take the list of IP's with custom Server header and check on port 8001/tcp.
   metadata:
     max-request: 1
-    shodan-query: 
+    shodan-query:
       - "Server: UserGate-UTM/42"
       - "Server: nextgen_0.5"
     vendor: UserGate
@@ -19,7 +19,7 @@ http:
   - method: HEAD
     path:
       - "{{BaseURL}}/static/ext-theme-utm/resources/ext-theme-utm-all.css"
-      
+
     extractors:
       - type: kval
         name: last_modified
@@ -27,7 +27,7 @@ http:
           - last_modified
 
     stop-at-first-match: true
-    matchers:     
+    matchers:
       - type: dsl
         name: 6.1.9.12193R
         dsl:

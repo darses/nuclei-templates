@@ -15,7 +15,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}/api/unauthorized/status"
-      
+
     matchers-condition: and
     matchers:
       - type: status
@@ -32,4 +32,4 @@ http:
         part: body
         name: device_model
         json:
-          - '.data.device_model'
+          - ".data.device_model"

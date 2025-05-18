@@ -8,7 +8,7 @@ info:
     Detect Genetec Security Center Synergis Access Control System and retrieve version from API.
   metadata:
     max-request: 1
-    shodan-query: 
+    shodan-query:
       - title:"Synergis™ appliance portal"
   tags: detect,version,genetec,synergis
 

@@ -8,7 +8,7 @@ info:
     Detect Mitsubishi Air Conditioning Control System.
   metadata:
     max-request: 1
-    shodan-query: 
+    shodan-query:
       - "http.favicon.hash:1506998866"
   tags: detect,version,mitsubishi,ics
 
@@ -24,4 +24,4 @@ http:
           - 200
       - type: word
         words:
-          - "<PARAM NAME=\"User\"     VALUE=\"ADMINISTRATOR\">"
+          - '<PARAM NAME="User"     VALUE="ADMINISTRATOR">'

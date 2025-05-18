@@ -7,7 +7,7 @@ info:
   description: Detects Erlang/OTP SSH servers and parses the version number from the banner.
   tags: network,ssh,erlang,detect,detection,tcp
   metadata:
-    shodan-query: 'SSH-2.0-Erlang'
+    shodan-query: "SSH-2.0-Erlang"
     max-request: 1
 
 tcp:
@@ -20,7 +20,7 @@ tcp:
     matchers:
       - type: word
         words:
-          - 'SSH-2.0-Erlang'
+          - "SSH-2.0-Erlang"
 
     extractors:
       - type: regex

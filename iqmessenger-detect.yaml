@@ -24,7 +24,7 @@ http:
         internal: true
         status:
           - 200
-      
+
       - type: word
         part: body
         internal: true

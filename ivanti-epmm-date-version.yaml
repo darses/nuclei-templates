@@ -11,14 +11,14 @@ info:
     shodan-query: http.favicon.hash:1983356674
     fofa-query: icon_hash="1983356674"
     vendor: Ivanti
-    product: Endpoint Manager Mobile 
+    product: Endpoint Manager Mobile
   tags: detect,ivanti,epmm
 
 http:
   - method: GET
     path:
       - "{{BaseURL}}/mifs/scripts/loginEvents.js"
-      
+
     extractors:
       - type: kval
         name: last_modified
@@ -26,7 +26,7 @@ http:
           - last_modified
 
     stop-at-first-match: true
-    matchers:     
+    matchers:
       - type: dsl
         name: 12.5.0.0
         dsl:

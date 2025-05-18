@@ -8,7 +8,7 @@ info:
     Retrieve Mitel MiCollab version from wapplink.asp. Unclear if this is present in all Mitel MiCollab server deployments.
   metadata:
     max-request: 1
-    shodan-query: 
+    shodan-query:
       - "http.favicon.hash:-1922044295"
     fofa-query:
       - "icon_hash=-1922044295"
@@ -28,7 +28,7 @@ http:
         regex:
           - "SVR_VER=([\\d\\.\\-]+)"
 
-    matchers:     
+    matchers:
       - type: status
         status:
           - 200

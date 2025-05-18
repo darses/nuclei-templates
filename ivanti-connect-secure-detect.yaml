@@ -9,7 +9,7 @@ info:
     - https://github.com/BishopFox/CVE-2025-0282-check
   metadata:
     max-request: 1
-    shodan-query: 'Set-Cookie: DSBrowserID'
+    shodan-query: "Set-Cookie: DSBrowserID"
   tags: ivanti,ics,version,detect
 
 http:

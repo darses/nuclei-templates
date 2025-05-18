@@ -24,4 +24,4 @@ tcp:
     matchers:
       - type: word
         words:
-          - 'SSH-2.0-SSHPiper'
+          - "SSH-2.0-SSHPiper"
