@@ -3765,7 +3765,7 @@ http:
         part: header
         name: sagemcom-tr069
         words:
-          - 'realm="Sagemcom TR-069"'
+          - "realm=\"Sagemcom TR-069\""
 
       - type: word
         part: body
@@ -3831,7 +3831,7 @@ http:
         part: body
         name: entels-entec
         words:
-          - 'href="css/img/ENTEK.ico"'
+          - "href=\"css/img/ENTEK.ico\""
           
       - type: word
         part: body
@@ -3850,4 +3850,4 @@ http:
         part: body
         name: checkpoint-quantum-spark
         words:
-          - 'content="Quantum Spark Security Appliance - Login"'
+          - "content=\"Quantum Spark Security Appliance - Login\""
