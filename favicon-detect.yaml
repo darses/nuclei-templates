@@ -3864,6 +3864,11 @@ http:
         dsl:
           - 'status_code==200 && ("1506998866" == mmh3(base64_py(body)))'
 
+      - type: dsl
+        name: "schneider-electric-ecostruxure"
+        dsl:
+          - 'status_code==200 && ("487597720" == mmh3(base64_py(body)))'
+
     extractors:
       - type: dsl
         dsl:
