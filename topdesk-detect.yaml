@@ -35,8 +35,8 @@ http:
       - type: word
         part: body
         words:
-          - "href=\"/tas/"
-          - "topdeskidploginforwardurl"
+          - 'href="/tas/'
+          - 'topdeskidploginforwardurl'
 
     extractors:
       - type: regex
