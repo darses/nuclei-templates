@@ -2238,16 +2238,16 @@ http:
       - type: word
         name: ibm-websphere-application-server
         words:
-          - 'SRVE0255E:'
-          - 'A WebGroup/Virtual Host to handle'
+          - "SRVE0255E:"
+          - "A WebGroup/Virtual Host to handle"
         condition: or
         part: body
 
       - type: word
         name: ibm-websphere-application-server
         words:
-          - '$wsep:'
-          - '$WSEP:'
+          - "$wsep:"
+          - "$WSEP:"
         condition: or
         part: all_headers
 
@@ -2441,7 +2441,7 @@ http:
       - type: word
         name: gitea
         words:
-          - 'Powered by Gitea'
+          - "Powered by Gitea"
         part: body
         case-insensitive: true
 
@@ -3571,7 +3571,6 @@ http:
           - "X-Jenkins"
         part: header
 
-
       - type: word
         name: cloudflare
         words:
@@ -3765,7 +3764,7 @@ http:
         part: header
         name: sagemcom-tr069
         words:
-          - "realm=\"Sagemcom TR-069\""
+          - 'realm="Sagemcom TR-069"'
 
       - type: word
         part: body
@@ -3789,7 +3788,9 @@ http:
         part: body
         name: topdesk
         words:
-          - "/tas/scripts/sessionbreaker.js"
+          - "/tas/css/auth.css"
+          - "topdeskidploginforwardurl"
+        condition: or
 
       - type: word
         part: body
@@ -3831,8 +3832,8 @@ http:
         part: body
         name: entels-entec
         words:
-          - "href=\"css/img/ENTEK.ico\""
-          
+          - 'href="css/img/ENTEK.ico"'
+
       - type: word
         part: body
         name: macroscop
@@ -3850,4 +3851,4 @@ http:
         part: body
         name: checkpoint-quantum-spark
         words:
-          - "content=\"Quantum Spark Security Appliance - Login\""
+          - 'content="Quantum Spark Security Appliance - Login"'
