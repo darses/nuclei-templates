@@ -49,6 +49,5 @@ http:
         internal: true
 
       - type: dsl
-        name: extracted_date
         dsl:
-          - "date_time('%Y-%M-%D', extracted_unix_timestamp)"
+          - '"Release date: " + date_time("%Y-%M-%D", extracted_unix_timestamp)'
