@@ -1,21 +1,27 @@
-id: fortigate-sslvpn-date
+id: fortinet-fortigate-panel
 
 info:
-  name: FortiGate SSLVPN Release Date
-  author: darses
+  name: Fortinet FortiGate SSL VPN Login Panel - Detect
+  author: bsysop,darses
   severity: info
   description: |
-    Detect FortiGate SSLVPN portal release date.
+    Detect FortiGate SSL VPN login and extract release date.
   metadata:
     max-request: 1
     shodan-query:
       - cpe:"cpe:2.3:o:fortinet:fortios"
-  tags: detect,fortigate,vpn,release-date
+      - http.html_hash:-1454941180
+  tags: detect,panel,fortigate,vpn,release-date
 
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
+
+    matchers:
+      - type: dsl
+        dsl:
+          - status_code==200 && contains(body, "top.location=\"/remote/login\";")
 
     extractors:
       - type: regex
@@ -30,8 +36,3 @@ http:
         name: date
         dsl:
           - date_time("%Y-%M-%D", hex_to_dec(etag))
-
-    matchers:
-      - type: dsl
-        dsl:
-          - status_code==200 && contains(tolower(header), 'etag') && contains(body, '/remote/login')
