@@ -10,7 +10,7 @@ info:
     verified: true
     max-request: 1
     vendor: mSafe
-  tags: tech,detect,version,msafe
+  tags: detect,version,msafe
 
 http:
   - method: GET

@@ -13,7 +13,7 @@ info:
       - "Server: nextgen_0.5"
     vendor: UserGate
     product: NGFW
-  tags: detect,usergate,ngfw,utm
+  tags: detect,usergate,ngfw,utm,release-date
 
 http:
   - method: HEAD

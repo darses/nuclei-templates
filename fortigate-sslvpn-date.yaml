@@ -10,6 +10,7 @@ info:
     max-request: 1
     shodan-query:
       - cpe:"cpe:2.3:o:fortinet:fortios"
+  tags: detect,fortigate,vpn,release-date
 
 http:
   - method: GET
