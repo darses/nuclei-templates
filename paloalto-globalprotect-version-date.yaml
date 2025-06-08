@@ -11,6 +11,7 @@ info:
     shodan-query:
       - http.html:"Global Protect"
       - http.favicon.hash:-631559155
+  tags: paloalto,globalprotect,version,date,detect
 
 # TODO Version dates
 # 2024-04-14
