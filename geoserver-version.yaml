@@ -1,0 +1,32 @@
+id: geoserver-version
+
+info:
+  name: Geoserver Web Version
+  author: darses
+  severity: info
+  description: |
+    Detects the presence and release date of Geoserver Web.
+  metadata:
+    max-request: 2
+    shodan-query:
+      - 'http.title:"GeoServer: Redirecting"' # With honeypots
+      - 'http.html_hash:1093634893 "Content-Disposition: inline"' # Without honeypots
+  tags: detect
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/geoserver/web/wicket/resource/org.geoserver.web.GeoServerBasePage/img/logo.png"
+      - "{{BaseURL}}/web/wicket/resource/org.geoserver.web.GeoServerBasePage/img/logo.png"
+    
+    stop-at-first-match: true
+    matchers:
+      - type: status
+        status:
+          - 200
+
+    extractors:
+      - type: kval
+        part: header
+        kval:
+          - last_modified
