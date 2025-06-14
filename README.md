@@ -19,5 +19,3 @@ To compare dates use: `to_number(unix_timestamp) < to_number(to_unix_time('2024-
 
 - `http.html_hash:-1774716666`, Panasonic i-Pro Network Disk Recorder, `/cgi-bin/start.cgi`
 - `http.favicon.hash:-47597126`, DedeCMS
-- `http.favicon.hash:-1922044295`, Mitel (MiCollab and others?)
-- `http.html_hash:-1971546278`, Mitel (MiCollab and others?)
