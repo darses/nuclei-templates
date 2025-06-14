@@ -43,6 +43,9 @@ http:
         part: body
         words:
           - 'content="Drupal'
+          - 'core/misc/drupal.js'
+          - 'data-drupal-link-system-path'
+        condition: or
 
       - type: regex
         part: header
@@ -65,3 +68,10 @@ http:
         group: 1
         regex:
           - '"\/core\/misc\/drupal\.js\?v=([\d\.]+)"'
+
+      - type: regex
+        part: body
+        name: version_theme_js
+        group: 1
+        regex:
+          - '<script src="\/themes\/[\/\w\_\d\.]+\?v=([\d\.]+)"><\/script>'
