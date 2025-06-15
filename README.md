@@ -19,3 +19,4 @@ To compare dates use: `to_number(unix_timestamp) < to_number(to_unix_time('2024-
 
 - `http.html_hash:-1774716666`, Panasonic i-Pro Network Disk Recorder, `/cgi-bin/start.cgi`
 - `http.favicon.hash:-47597126`, DedeCMS
+- `http.html:"data-xwiki"`, `http.favicon.hash:831700033`, XWiki, extract version from / `\"xwikiplatformversion\">\s*<a[^>]+>\s*([\w\d\s\.\-]+)<\/a>`
