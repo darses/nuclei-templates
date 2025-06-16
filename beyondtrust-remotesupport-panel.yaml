@@ -1,11 +1,11 @@
-id: beyondtrust-remotesupport-detect
+id: beyondtrust-remotesupport-panel
 
 info:
-  name: BeyondTrust Remote Support - Detect
+  name: BeyondTrust Remote Support Panel - Detect
   author: darses
   severity: info
   description: |
-    Detect BeyondTrust Remote Support.
+    Detect BeyondTrust Remote Support Panel.
   metadata:
     verified: true
     max-requests: 1
@@ -15,7 +15,7 @@ info:
       - icon_hash="-694003434"
     vendor: BeyondTrust
     product: Remote Support
-  tags: detect,beyondtrust
+  tags: panel,detect,beyondtrust
 
 http:
   - method: GET
