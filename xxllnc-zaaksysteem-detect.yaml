@@ -9,6 +9,9 @@ info:
   metadata:
     vendor: xxllnc
     product: Zaaksysteem
+    fofa-query:
+      - "Set-Cookie: zaaksysteem_session="
+      - icon_hash="1478021101"
   reference:
     - https://www.xxllnc.nl/
   tags: detect,tech
