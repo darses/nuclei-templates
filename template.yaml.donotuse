@@ -1,0 +1,25 @@
+id: template-id
+
+info:
+  name: Vendor Product - TemplateType
+  severity: info
+  author: darses
+  description: |
+    Detects TODO.
+  metadata:
+    vendor: Vendor
+    product: Product
+    fofa-query:
+      - 
+  tags: detect
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/"
+
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
