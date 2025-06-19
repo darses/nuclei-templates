@@ -14,7 +14,7 @@ info:
       - icon_hash="-726768224"
   reference:
     - https://www.tools4ever.com/helloid/
-  tags: detect,tech
+  tags: detect,tools4ever,tech
 
 http:
   - method: GET
