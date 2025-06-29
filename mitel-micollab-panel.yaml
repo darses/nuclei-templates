@@ -27,6 +27,7 @@ http:
   - method: GET
     path:
       - "{{BaseURL}}/wd/en-us/wapplink.asp"
+      - "{{BaseURL}}/portal/decorations/layout/loginPage/css/styles.css"
       - "{{BaseURL}}/portal/"
 
     stop-at-first-match: true
@@ -43,3 +44,8 @@ http:
         group: 1
         regex:
           - "SVR_VER=([\\d.\\-]+)"
+
+      - type: kval
+        part: header
+        kval:
+          - last_modified
