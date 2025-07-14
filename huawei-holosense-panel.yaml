@@ -1,11 +1,11 @@
-id: huawei-holosense-detect
+id: huawei-holosense-panel
 
 info:
-  name: Huawei HoloSens SDC - Detect
+  name: Huawei HoloSens SDC - Panel
   severity: info
   author: darses
   description: |
-    Detects Huawei HoloSens SDC, a software-based Internet of Things camera with a modern and high-quality appearance.
+    Detects login panel of Huawei HoloSens SDC, a software-based Internet of Things camera with a modern and high-quality appearance.
   metadata:
     max-requests: 3
     vendor: huawei
