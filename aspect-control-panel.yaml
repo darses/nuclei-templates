@@ -39,19 +39,4 @@ http:
       - type: status
         status:
           - 200
-
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "<title>ASPECT Control Panel"
-          - 'src="libjs/pngfix.js"'
-        condition: or
-
-      - type: status
-        status:
-          - 200
+ 
