@@ -1,0 +1,57 @@
+id: aspect-control-panel
+
+info:
+  name: ASPECT Control Panel - Panel
+  author: JustaAcat,darses
+  severity: info
+  description: |
+    ASPECT Control Panel login was detected.
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+    cpe: cpe:2.3:h:abb:aspect-ent-256:*:*:*:*:*:*:*:*
+  metadata:
+    verified: true
+    max-request: 1
+    shodan-query:
+      - title:"ASPECT Control Panel"
+      - http.favicon.hash:1011076161
+      - http.favicon.hash:-1849398868
+      - ssl.cert.subject.cn:"aspect.local"
+      - http.html:'src="libjs/pngfix.js"'
+    product: aspect-ent-256
+    vendor: abb
+  tags: detect,panel,aspect,login,abb
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "<title>ASPECT Control Panel"
+          - 'src="libjs/pngfix.js"'
+        condition: or
+
+      - type: status
+        status:
+          - 200
+
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "<title>ASPECT Control Panel"
+          - 'src="libjs/pngfix.js"'
+        condition: or
+
+      - type: status
+        status:
+          - 200
