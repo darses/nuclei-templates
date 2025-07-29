@@ -46,6 +46,7 @@ http:
 
     extractors:
       - type: regex
+        name: siteClientTag
         group: 1
         regex:
-          - \"?siteClientTag\"?:\s*"\d*[$]+([^"]+)"
+          - '"?siteClientTag"?\s*:\s*"\d*[$]+([^"]+)"'
