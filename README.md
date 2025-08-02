@@ -26,11 +26,6 @@ To convert last-m to unix.
           - 'to_unix_time(last_modified_str, "Mon, 02 Jan 2006 15:04:05 GMT")'
 ```
 
-## Other favicons
-
-- `http.favicon.hash:-1403225937` NightC2 (Botnet C2 panel)
-- `http.favicon.hash:-857956556` "SiteManager"
-
 ## Other fingerprints
 
 - `http.html_hash:-1774716666`, Panasonic i-Pro Network Disk Recorder, `/cgi-bin/start.cgi`
