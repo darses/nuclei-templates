@@ -58,18 +58,20 @@ http:
 
   - method: GET
     path:
-      - "{{BaseURL}}/this-page-does-not-exist-but-returns-version"
+      - "{{BaseURL}}/missing.html"
 
     matchers-condition: and
     matchers:
       - type: status
         status:
-          - 404
+          - 200
 
       - type: word
         part: body
         words:
           - 'src="/js/portalframe'
+          - loginbody
+        condition: and
 
     extractors:
       - type: regex
