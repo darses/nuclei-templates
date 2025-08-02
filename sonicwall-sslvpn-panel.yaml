@@ -2,7 +2,7 @@ id: sonicwall-sslvpn-panel
 
 info:
   name: SonicWall Virtual Office SSL VPN Login Panel - Detect
-  author: PR3R00T,johnk3r
+  author: PR3R00T,johnk3r,darses
   severity: info
   description: SonicWall Virtual Office SSL VPN login panel was detected.
   classification:
@@ -10,7 +10,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:sonicwall:sonicos:*:*:*:*:*:*:*:*
   metadata:
-    max-request: 3
+    max-request: 4
     vendor: sonicwall
     product: sonicos
     shodan-query:
