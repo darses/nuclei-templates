@@ -1,0 +1,53 @@
+id: fortisiem-panel
+
+info:
+  name: Fortinet FortiSIEM - Panel
+  author: pussycat0x,darses
+  severity: info
+  description: |
+    FortiSIEM login panel detected.
+  classification:
+    cpe: cpe:2.3:a:fortinet:fortisiem:*:*:*:*:*:*:*:*
+  metadata:
+    verified: true
+    max-request: 1
+    vendor: fortinet
+    product: fortisiem
+    shodan-query:
+      - http.favicon.hash:-1341442175
+      - http.html:"var hst = location.hostname"
+    fofa-query:
+      - icon_hash="-1341442175"
+      - body="var hst = location.hostname"
+  tags: panel,fortinet
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/phoenix/login.html"
+
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy: default-src 'self' https://*.duosecurity.com"
+          - "Referrer-Policy: no-referrer-when-downgrade"
+        condition: and
+
+      - type: word
+        part: body
+        words:
+          - "<title>Login</title>"
+          - "loginUserNameInput"
+        condition: and
+
+    extractors:
+      - type: kval
+        part: header
+        kval:
+          - last_modified
