@@ -12,6 +12,8 @@ info:
   metadata:
     verified: true
     max-request: 1
+    vendor: cisco
+    product: secure_firewall_management_center
     shodan-query:
       - http.html:"Cisco Firepower Management Center"
       - http.html:"Secure Firewall Management Center"
