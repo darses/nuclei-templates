@@ -1,0 +1,49 @@
+id: ivanti-connect-secure-panel
+
+info:
+  name: Ivanti Connect Secure - Panel
+  author: darses
+  severity: info
+  description: |
+    Ivanti Connect Secure (formerly Pulse Secure) was detected.
+  reference:
+    - https://github.com/BishopFox/CVE-2025-0282-check
+  metadata:
+    verified: true
+    max-request: 1
+    vendor: ivanti
+    product: connect_secure
+    shodan-query:
+      - product:"Pulse Secure"
+      - "Set-Cookie: DSBrowserID"
+      - http.favicon.hash:-485487831
+      - http.favicon.hash:-1439222863
+      - title:"Ivanti Connect Secure"
+    fofa-query:
+      - "Set-Cookie: DSBrowserID"
+      - icon_hash="-485487831"
+      - icon_hash="-1439222863"
+      - title=="Ivanti Connect Secure"
+  tags: detect,panel,ivanti
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/dana-na/auth/url_admin/welcome.cgi?type=inter"
+
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+
+      - type: word
+        words:
+          - "PulseSecure_Host_Checker"
+
+    extractors:
+      - type: regex
+        name: version
+        group: 1
+        regex:
+          - 'ProductVersion"\s+VALUE="([0-9.]+)"'

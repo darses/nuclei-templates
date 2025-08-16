@@ -1,0 +1,81 @@
+id: sonicwall-sslvpn-panel
+
+info:
+  name: SonicWall Virtual Office SSL VPN Login - Panel
+  author: PR3R00T,johnk3r,darses
+  severity: info
+  description: |
+    SonicWall Virtual Office SSL VPN login panel was detected.
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+    cpe: cpe:2.3:o:sonicwall:sonicos:*:*:*:*:*:*:*:*
+  metadata:
+    max-request: 4
+    vendor: sonicwall
+    product: sonicos
+    shodan-query:
+      - product:"SonicWALL SSL-VPN http proxy"
+      - title:"Virtual Office"
+      - "Server: SonicWALL SSL-VPN Web Server"
+    fofa-query:
+      - title="Virtual Office"
+      - server="SonicWALL SSL-VPN Web Server"
+    google-query: inurl:"auth.html" intitle:"sonicwall"
+  tags: panel,panel,sonicwall
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/"
+      - "{{BaseURL}}/cgi-bin/login"
+      - "{{BaseURL}}/cgi-bin/welcome"
+
+    stop-at-first-match: true
+
+    matchers-condition: or
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "Virtual Office</title>"
+          - '<meta name="portalName" content="VirtualOffice">'
+          - '<meta name="id" content="sslvpnLogin">'
+        condition: or
+
+      - type: word
+        part: header
+        words:
+          - "SonicWALL SSLVPN Web Server"
+          - "SonicWALL SSL-VPN Web Server"
+        condition: or
+
+    extractors:
+      - type: regex
+        name: version
+        group: 1
+        regex:
+          - "src=\"auth-([\\d\\.]+)-[^\\.]+\\.js\""
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/missing.html"
+
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+
+      - type: word
+        part: body
+        words:
+          - 'src="/js/portalframe'
+          - loginbody
+        condition: and
+
+    extractors:
+      - type: regex
+        group: 1
+        regex:
+          - "src=\"/js/portalframe\\.([\\d\\.\\-\\w]+)\\.js\""
