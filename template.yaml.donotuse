@@ -5,7 +5,7 @@ info:
   severity: info
   author: darses
   description: |
-    Detects TODO.
+    Vendor Product was detected.
   metadata:
     vendor: Vendor
     product: Product
