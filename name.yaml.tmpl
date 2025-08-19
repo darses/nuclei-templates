@@ -6,12 +6,20 @@ info:
   author: darses
   description: |
     Vendor Product was detected.
+  classification:
+    cve-id: todo
   metadata:
-    vendor: Vendor
-    product: Product
+    verified: false
+    max-requests: 1
+    vendor: vendor
+    product: product
+    shodan-query:
+      -
     fofa-query:
-      - 
-  tags: detect
+      -
+  reference:
+    - http://example.com
+  tags: vendor
 
 http:
   - method: GET
@@ -20,6 +28,10 @@ http:
 
     matchers-condition: and
     matchers:
+      - type: word
+        words:
+          - "matcher"
+
       - type: status
         status:
           - 200
