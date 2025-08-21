@@ -7,7 +7,7 @@ info:
   description: |
     Schneider Electric EcoStruxure™ Power Monitoring Expert (PME) login panel detected.
   metadata:
-    verified: false
+    verified: true
     max-requests: 1
     vendor: schneider_electric
     product: ecostruxure_power_monitoring_expert
@@ -15,7 +15,8 @@ info:
       - title:"Power Monitoring Expert"
       - http.favicon.hash:1317073961
     fofa-query:
-      -
+      - title=="Power Monitoring Expert"
+      - icon_hash="1317073961"
   tags: detect,panel,schneider_electric
 
 http:
