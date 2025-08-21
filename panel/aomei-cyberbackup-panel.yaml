@@ -7,7 +7,7 @@ info:
   description: |
     AOMEI Cyber Backup login panel detected.
   metadata:
-    verified: false
+    verified: true
     max-requests: 1
     vendor: aomei
     product: cyber_backup
