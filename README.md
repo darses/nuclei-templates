@@ -22,6 +22,7 @@ To convert last-m to unix.
         internal: true
 
       - type: dsl
+        name: unix_timestamp
         dsl:
           - 'to_unix_time(last_modified_str, "Mon, 02 Jan 2006 15:04:05 GMT")'
 ```
