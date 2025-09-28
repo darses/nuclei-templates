@@ -1,0 +1,51 @@
+id: cisco-asa-version
+
+info:
+  name: Cisco ASA FTD WebVPN - Version
+  severity: info
+  author: darses
+  description: |
+    Cisco Product was detected.
+  classification:
+    cve-id: todo
+  metadata:
+    verified: false
+    max-requests: 1
+    vendor: cisco
+    product: product
+    shodan-query:
+      -
+    fofa-query:
+      -
+  reference:
+    - https://x.com/DefusedCyber/status/1971492272966598683
+  tags: cisco
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/+CSCOL+/csvrloader.jar"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Type: application/java-archive"
+          - "Content-Type: application/x-java-archive"
+        condition: or
+
+      - type: word
+        part: body
+        words:
+          - "/cisco/webvpn/"
+
+      - type: status
+        status:
+          - 200
+    
+    extractors:
+      - type: kval
+        part: header
+        kval:
+          - last_modified
