@@ -14,9 +14,9 @@ info:
     vendor: cisco
     product: product
     shodan-query:
-      -
+      - title:"E-Business Suite Home Page Redirect"
     fofa-query:
-      -
+      - title=="E-Business Suite Home Page Redirect"
   reference:
     - https://x.com/DefusedCyber/status/1971492272966598683
   tags: cisco
