@@ -3,7 +3,9 @@
 ## Cheatsheet
 
 ```bash
-jq -r '{"ip":.ip_str, "port": .port} | join(":")' private/shodan/todo.json | ~/go/bin/nuclei -fhr -t todo.yaml -o private/log/todo.log
+jq -r '{"ip":.ip_str, "port": .port} | join(":")' shodan/todo.json
+jq -r .link fofa/2025-10-26-wsus-known-ports-nl.json
+nuclei -fhr -t ../nuclei-templates/drafts/todo.yaml -o log/date-todo.log
 ```
 
 ## Nuclei DSL
