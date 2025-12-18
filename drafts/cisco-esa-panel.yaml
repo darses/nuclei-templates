@@ -1,0 +1,38 @@
+id: cisco-esa-version
+
+info:
+  name: Cisco Secure Email - Version
+  severity: info
+  author: darses
+  description: |
+    Cisco Secure Email Version extractor.
+  metadata:
+    verified: false
+    max-requests: 1
+    vendor: cisco
+    product: cisco_secure_email
+    shodan-query:
+      - product:"IronPort AsyncOS http config"
+      - '"Set-Cookie: sid=" "303 Redirecting"'
+  tags: cisco,panel,email
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/yui/datatable/assets/datatable.css"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "Yahoo! Inc."
+
+      - type: status
+        status:
+          - 200
+
+    extractors:
+      - type: kval
+        name: last_modified
+        kval:
+          - last_modified
