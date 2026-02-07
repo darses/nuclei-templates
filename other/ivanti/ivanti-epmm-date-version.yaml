@@ -14,6 +14,8 @@ info:
     fofa-query: icon_hash="1983356674"
     vendor: ivanti
     product: endpoint_manager_mobile
+    references:
+      - https://help.ivanti.com/mi/help/en_us/core/12.x/rn/CoreConnectorReleaseNotes/Revision_history.htm
   tags: detect,ivanti,endpoint_manager_mobile
 
 http:
@@ -30,6 +32,11 @@ http:
     stop-at-first-match: true
     matchers:
       - type: dsl
+        name: unknown
+        dsl:
+          - status_code == 200 && last_modified=="Mon, 17 Nov 2025 11:44:22 GMT"
+
+      - type: dsl
         name: 12.7.0.0
         dsl:
           - status_code == 200 && last_modified=="Fri, 31 Oct 2025 04:34:58 GMT"
@@ -40,10 +47,14 @@ http:
           - status_code == 200 && last_modified=="Tue, 30 Sep 2025 14:02:50 GMT"
 
       - type: dsl
-        name: 12.4.0.4-12.6.0.2
+        name: 12.4.0.4-or-12.6.0.2
         dsl:
           - status_code == 200 && last_modified=="Mon, 29 Sep 2025 19:03:16 GMT"
 
+      - type: dsl
+        name: 12.4.0.4-or-12.6.0.2
+        dsl:
+          - status_code == 200 && last_modified=="Mon, 29 Sep 2025 07:57:36 GMT"
       - type: dsl
         name: 12.5.0.2
         dsl:
