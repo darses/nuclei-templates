@@ -1,0 +1,44 @@
+id: interactsh-server
+
+info:
+  name: Interactsh HTTP Server - Detect
+  author: pdteam
+  severity: low
+  description: |
+    Detect Interactsh HTTP service. Interactsh is used for Out-of-band Application Security Testing (OAST).
+  classification:
+    cpe: cpe:2.3:a:projectdiscovery:interactsh:*:*:*:*:*:*:*:*
+  metadata:
+    verified: true
+    max-request: 1
+    vendor: projectdiscovery
+    product: interactsh
+    shodan-query: http.html:"Interactsh Server"
+  reference: https://github.com/projectdiscovery/interactsh
+  tags: tech,interactsh,discovery
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: dsl
+        dsl:
+          - status_code == 200 && contains(header, "X-Interactsh-Version:")
+          - status_code == 200 && contains(body, "<h1> Interactsh Server </h1>")
+        condition: or
+
+    extractors:
+      - type: kval
+        part: header
+        kval:
+          - x_interactsh_version
+          - server
+
+      - type: regex
+        group: 1
+        regex:
+          - '<b>(.*)<\/b> server'
+          - 'from <b>\*\.(.*)<\/b>'
+
