@@ -47,12 +47,12 @@ http:
           - status_code == 200 && last_modified=="Tue, 30 Sep 2025 14:02:50 GMT"
 
       - type: dsl
-        name: 12.4.0.4-or-12.6.0.2
+        name: 12.6.0.2
         dsl:
           - status_code == 200 && last_modified=="Mon, 29 Sep 2025 19:03:16 GMT"
 
       - type: dsl
-        name: 12.4.0.4-or-12.6.0.2
+        name: 12.4.0.4
         dsl:
           - status_code == 200 && last_modified=="Mon, 29 Sep 2025 07:57:36 GMT"
       - type: dsl
