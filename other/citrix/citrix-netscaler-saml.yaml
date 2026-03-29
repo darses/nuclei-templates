@@ -1,11 +1,11 @@
-id: citrix-netscaler-samlidp
+id: citrix-netscaler-saml
 
 info:
-  name: Citrix Netscaler - SAML IdP
+  name: Citrix Netscaler - SAML
   severity: info
   author: darses
   description: |
-    Detected Citrix Netscaler with SAML IdP enabled.
+    Detected Citrix Netscaler with SAML SP or IDP enabled.
   classification:
     cve-id: todo
   metadata:
