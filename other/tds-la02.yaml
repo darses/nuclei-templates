@@ -9,9 +9,11 @@ info:
   metadata:
     verified: true
     max-requests: 1
+    publicwww-query:
+      - '"=new TextDecoder" "=new Uint8Array(" "0x0,0x1,0x8,0xff,"'
   reference:
     - https://urlscan.io/search/#filename%3A%22la02%22
-  tags: vendor
+  tags: compromised,detect,wordpress,backdoor
 
 http:
   - method: GET
