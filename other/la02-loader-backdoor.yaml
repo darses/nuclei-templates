@@ -1,19 +1,19 @@
-id: tds-la02
+id: la02-loader-backdoor
 
 info:
-  name: Traffic Distribution System - La02
+  name: La02 Loader - Detect
   severity: high
   author: darses
   description: |
-    Traffic Distribution System (TDS) La02 detected. This is a Javascript-based Loader using XOR obfuscation and browser fingerprinting and contains the capability to dynamically load new Javascript code. The TDS is observed mostly on Wordpress website, likely compromised. 
+    Malicious JavaScript loader La02 detected. This is a Javascript-based Loader using XOR obfuscation and browser fingerprinting and contains the capability to dynamically load new Javascript code. The loader is observed mostly on compromised Wordpress websites.
   metadata:
     verified: true
     max-requests: 1
     publicwww-query:
       - '"=new TextDecoder" "=new Uint8Array(" "0x0,0x1,0x8,0xff,"'
-  reference:
-    - https://urlscan.io/search/#filename%3A%22la02%22
-  tags: compromised,detect,wordpress,backdoor
+    urlscan-query:
+      - filename:"la02"
+  tags: detect,wordpress,backdoor
 
 http:
   - method: GET
