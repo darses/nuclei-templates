@@ -6,11 +6,9 @@ info:
   author: darses
   description: |
     Detected Citrix Netscaler with SAML SP or IDP enabled.
-  classification:
-    cve-id: todo
   metadata:
     verified: false
-    max-requests: 1
+    max-requests: 2
     vendor: citrix
     product: netscaler
     shodan-query:
@@ -34,3 +32,17 @@ http:
       - type: status
         status:
           - 200
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/cgi/samlauth"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "Internal Server Error 43549"
+
+      - type: status
+        status:
+          - 500
