@@ -8,27 +8,6 @@ jq -r .link fofa/2025-10-26-wsus-known-ports-nl.json
 nuclei -fhr -t ../nuclei-templates/drafts/todo.yaml -o log/date-todo.log
 ```
 
-## Nuclei DSL
-
-To compare dates use: `to_number(unix_timestamp) < to_number(to_unix_time('2024-01-29'))`.
-
-To convert last-m to unix.
-
-```yaml
-    extractors:
-      - type: kval
-        part: header
-        kval:
-          - last_modified
-        name: last_modified_str
-        internal: true
-
-      - type: dsl
-        name: unix_timestamp
-        dsl:
-          - 'to_unix_time(last_modified_str, "Mon, 02 Jan 2006 15:04:05 GMT")'
-```
-
 ## Other fingerprints
 
 - `http.html_hash:-1774716666`, Panasonic i-Pro Network Disk Recorder, `/cgi-bin/start.cgi`
