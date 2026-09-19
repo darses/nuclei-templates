@@ -5,14 +5,10 @@ info:
   author: darses
   severity: info
   description: |
-    Custom multi-asset favicon detection for technologies not covered by upstream templates.
+    Custom multi-asset favicon detection for technologies not covered by upstream templates. This template does not contain metadata search queries.
   metadata:
     verified: true
     max-requests: 2
-    shodan-query:
-      - http.favicon.hash:-47597126
-    fofa-query:
-      - icon_hash="-47597126"
   tags: tech,favicon,discovery
 
 http:
@@ -28,3 +24,8 @@ http:
         name: dedecms
         dsl:
           - 'status_code==200 && ("-47597126" == mmh3(base64_py(body)))'
+
+      - type: dsl
+        name: sysaid
+        dsl:
+          - 'status_code==200 && ("1540720428" == mmh3(base64_py(body)))'

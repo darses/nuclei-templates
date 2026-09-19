@@ -17,35 +17,32 @@ info:
     product: sysaid
     shodan-query: http.favicon.hash:1540720428
     fofa-query: icon_hash=1540720428
-  tags: detect,panel,sysaid,helpdesk
+  tags: detect,panel,sysaid,helpdesk,discovery,version
 
 http:
   - method: GET
     path:
       - "{{BaseURL}}/Login.jsp"
       - "{{BaseURL}}/InvalidAccount.jsp"
-      - "{{BaseURL}}/favicon.ico"
+
+    stop-at-first-match: true
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "<title>SysAid Help Desk Software</title>"
+          - "mailto:info@sysaid.com"
+          - "css/identity/sysaid_logo.png"
+
+      - type: status
+        status:
+          - 200
 
     extractors:
       - type: regex
         name: version
         part: body
+        group: 2
         regex:
           - "(ajaxTools\\.js|master\\.css)\\?v([\\d\\.\\w]+)\""
-        group: 2
-
-    stop-at-first-match: true
-
-    matchers-condition: or
-    matchers:
-      - type: dsl
-        dsl:
-          - "status_code==200 && contains(tolower(body), 'sysaid help desk software')"
-
-      - type: dsl
-        dsl:
-          - "status_code==200 && contains(tolower(body), 'info@sysaid.com')"
-
-      - type: dsl
-        dsl:
-          - "status_code==200 && ('1540720428' == mmh3(base64_py(body)))"
