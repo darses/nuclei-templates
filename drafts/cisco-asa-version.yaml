@@ -5,21 +5,19 @@ info:
   severity: info
   author: darses
   description: |
-    Cisco Product was detected.
-  classification:
-    cve-id: todo
+    Cisco ASA FTD WebVPN version detection based on csvrloader.jar.
   metadata:
     verified: false
     max-requests: 1
     vendor: cisco
-    product: product
+    product: asa_ftd_webvpn
     shodan-query:
-      - title:"E-Business Suite Home Page Redirect"
+      - "/+CSCOL+/csvrloader.jar"
     fofa-query:
-      - title=="E-Business Suite Home Page Redirect"
+      - body="/+CSCOL+/csvrloader.jar"
   reference:
     - https://x.com/DefusedCyber/status/1971492272966598683
-  tags: cisco
+  tags: cisco,version,vpn,detect
 
 http:
   - method: GET

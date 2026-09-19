@@ -8,7 +8,7 @@ info:
     cpe: cpe:2.3:a:misp:misp:*:*:*:*:*:*:*:*
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: misp
     product: misp
     shodan-query:

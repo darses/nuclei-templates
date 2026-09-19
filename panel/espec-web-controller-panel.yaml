@@ -8,7 +8,7 @@ info:
     Espec Web Controller login panel was detected.
   metadata:
     verified: true
-    max-request: 2
+    max-requests: 2
     vendor: espec
     product: web_controller
     shodan-query:

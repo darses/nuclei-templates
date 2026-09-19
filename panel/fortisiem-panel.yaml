@@ -10,7 +10,7 @@ info:
     cpe: cpe:2.3:a:fortinet:fortisiem:*:*:*:*:*:*:*:*
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: fortinet
     product: fortisiem
     shodan-query:

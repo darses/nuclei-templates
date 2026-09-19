@@ -10,7 +10,7 @@ info:
     - https://github.com/pterodactyl/panel
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: pterodactyl
     product: panel
     shodan-query:
@@ -23,7 +23,7 @@ info:
       - icon_hash="-456405319"
       - icon_hash="846001371"
       - "Set-Cookie: pterodactyl_session="
-  tags: detect,panel,pterodactyl
+  tags: detect,panel,pterodactyl,login
 
 http:
   - method: GET

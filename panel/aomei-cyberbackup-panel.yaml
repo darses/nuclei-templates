@@ -18,7 +18,7 @@ info:
       - title=="AOMEI Cyber Backup"
       - icon_hash="1569956852"
       - icon_hash="-796726038"
-  tags: detect,panel,aomei
+  tags: detect,panel,aomei,backup,login
 
 http:
   - method: GET

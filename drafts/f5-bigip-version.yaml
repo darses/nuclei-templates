@@ -13,11 +13,7 @@ info:
     product: bigip
     shodan-query:
       - "F5-Login-Page: true"
-    fofa-query:
-      -
-  reference:
-    - http://example.com
-  tags: f5,bigip
+  tags: f5,bigip,version,detect
 
 http:
   - method: GET

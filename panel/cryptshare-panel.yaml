@@ -8,7 +8,7 @@ info:
     Detects the presence of Pointsharp Cryptshare secure email and file sharing server.
   metadata:
     verified: true
-    max-request: 3
+    max-requests: 3
     vendor: pointsharp
     product: cryptshare
     shodan-query:

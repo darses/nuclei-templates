@@ -8,7 +8,7 @@ info:
     Erlang/OTP SSH server was detected.
   metadata:
     shodan-query: "SSH-2.0-Erlang"
-    max-request: 1
+    max-requests: 1
     vendor: erlang_otp
   tags: network,ssh,erlang,detect,tcp
 

@@ -10,7 +10,7 @@ info:
     - https://www.vertigis.com/
   metadata:
     verified: true
-    max-request: 10
+    max-requests: 10
     shodan-query: http.title:"vertigis"
   tags: tech,vertigis,detect
 

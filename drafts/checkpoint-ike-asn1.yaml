@@ -19,7 +19,7 @@ info:
     - https://tools.ietf.org/html/rfc2408
     - https://tools.ietf.org/html/rfc2409
     - https://www.itu.int/rec/T-REC-X.690
-  tags: network,ike,checkpoint,vpn,udp
+  tags: network,ike,checkpoint,vpn,udp,kev
 
 javascript:
   - code: |

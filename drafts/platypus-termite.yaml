@@ -6,8 +6,6 @@ info:
   author: darses
   description: |
     WangYihang Platypus Termite C2 implant API download endpoint was detected.
-  classification:
-    cve-id: todo
   metadata:
     verified: false
     max-requests: 1

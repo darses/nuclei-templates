@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:o:sonicwall:sonicos:*:*:*:*:*:*:*:*
   metadata:
-    max-request: 4
+    max-requests: 4
     vendor: sonicwall
     product: sonicos
     shodan-query:
@@ -22,7 +22,7 @@ info:
       - title="Virtual Office"
       - server="SonicWALL SSL-VPN Web Server"
     google-query: inurl:"auth.html" intitle:"sonicwall"
-  tags: panel,panel,sonicwall
+  tags: panel,panel,sonicwall,detect,login
 
 http:
   - method: GET

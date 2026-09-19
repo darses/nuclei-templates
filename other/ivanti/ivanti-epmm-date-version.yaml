@@ -9,7 +9,7 @@ info:
     The minor.major version can be extracted from the landing page. The patch is based on the latest available release on that date for the specific major.minor version as mentiooned in the public release notes.
     The checker seems unreliable for Ivanti hosted installations. The x.y.0.0 versions appear to have multiple Last-Modified dates, for unknown reasons.
   metadata:
-    max-request: 1
+    max-requests: 1
     shodan-query: http.favicon.hash:1983356674
     fofa-query: icon_hash="1983356674"
     vendor: ivanti

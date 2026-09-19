@@ -7,7 +7,7 @@ info:
   description: |
     Osgeo Geoserver Web version was detected.
   metadata:
-    max-request: 2
+    max-requests: 2
     vendor: osgeo
     product: geoserver
     shodan-query:

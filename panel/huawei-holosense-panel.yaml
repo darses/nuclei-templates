@@ -17,7 +17,7 @@ info:
     fofa-query:
       - '"Server: SDC Server" && protocol="https"'
       - '"Server: WebServer/1.0.0" && port="1443"'
-  tags: detect,huawei,holosens,panel
+  tags: detect,huawei,holosens,panel,camera,login
 
 flow: http(1) && http(2) && http(3)
 

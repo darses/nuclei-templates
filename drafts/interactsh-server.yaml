@@ -10,7 +10,7 @@ info:
     cpe: cpe:2.3:a:projectdiscovery:interactsh:*:*:*:*:*:*:*:*
   metadata:
     verified: false
-    max-request: 1
+    max-requests: 1
     vendor: projectdiscovery
     product: interactsh
     shodan-query: http.html:"Interactsh Server"

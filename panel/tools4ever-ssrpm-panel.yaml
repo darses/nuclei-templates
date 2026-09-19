@@ -8,7 +8,7 @@ info:
     Tools4Ever Self-Service Reset Password Manager login panel was detected.
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: Tools4Ever
     product: Self-Service Reset Password Manager
     shodan-query:
@@ -21,7 +21,7 @@ info:
       - "Set-Cookie: .SSRPMFORMSAUTH=;"
   reference:
     - https://www.tools4ever.com/ssrpm/
-  tags: detect,panel,tools4ever
+  tags: detect,panel,tools4ever,login
 
 http:
   - method: GET

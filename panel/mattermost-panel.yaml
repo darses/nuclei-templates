@@ -27,7 +27,7 @@ info:
       - icon_hash="-405956582"
       - icon_hash="-1793549760"
       - icon_hash="1405455356"
-  tags: detect,panel,mattermost
+  tags: detect,panel,mattermost,login
 
 http:
   - method: GET

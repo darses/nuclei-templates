@@ -10,7 +10,7 @@ info:
     max-requests: 1
     vendor: n8n-io
     product: n8n
-  tags: n8n
+  tags: n8n,tech,detect,workflow
 
 http:
   - method: GET

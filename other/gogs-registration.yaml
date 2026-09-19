@@ -9,7 +9,7 @@ info:
     - https://gogs.io/
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: gogs
     product: gogs
     shodan-query:

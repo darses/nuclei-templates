@@ -1,22 +1,16 @@
 id: checkpoint-icaservices-detect
 
 info:
-  name: Check Point Security Gateway - TemplateType
+  name: Check Point Security Gateway - Detect
   severity: info
   author: darses
   description: |
     Check Point Security Gateway was detected.
-  classification:
-    cve-id: todo
   metadata:
     verified: false
     max-requests: 1
     vendor: checkpoint
     product: security_gateway
-    shodan-query:
-      -
-    fofa-query:
-      -
   reference:
     - https://support.checkpoint.com/results/sk/sk34926
   tags: checkpoint,detect

@@ -7,7 +7,7 @@ info:
   description: |
     Detect PAN-OS version release date from the GlobalProtect Portal ETag on static resources. This template supports both older (~<10.1) and newer PAN-OS (<=11.2) versions.
   metadata:
-    max-request: 3
+    max-requests: 3
     vendor: paloaltonetworks
     product: globalprotect
     shodan-query:

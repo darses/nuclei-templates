@@ -8,7 +8,7 @@ info:
     Custom multi-asset favicon detection for technologies not covered by upstream templates.
   metadata:
     verified: true
-    max-request: 2
+    max-requests: 2
     shodan-query:
       - http.favicon.hash:-47597126
     fofa-query:

@@ -10,11 +10,11 @@ info:
     verified: true
     vendor: fortinet
     product: fortigate
-    max-request: 1
+    max-requests: 1
     shodan-query:
       - cpe:"cpe:2.3:o:fortinet:fortios"
       - http.html_hash:-1454941180
-  tags: detect,panel,fortigate
+  tags: detect,panel,fortigate,vpn,login
 
 http:
   - method: GET

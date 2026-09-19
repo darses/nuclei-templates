@@ -14,7 +14,7 @@ info:
     cpe: cpe:2.3:a:versa-networks:versa_director:*:*:*:*:*:*:*:*
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: versa-networks
     product: versa_director
     shodan-query:

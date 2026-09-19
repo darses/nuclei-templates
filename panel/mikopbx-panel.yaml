@@ -11,7 +11,7 @@ info:
     - https://mikopbx.com/
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: miko
     product: mikopbx
     shodan-query:

@@ -10,7 +10,7 @@ info:
     cpe: cpe:2.3:a:papercut:papercut_ng:*:*:*:*:*:*:*:*
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: papercut
     product: papercut_ng
     google-query:

@@ -10,7 +10,7 @@ info:
     - https://github.com/BishopFox/CVE-2025-0282-check
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: ivanti
     product: connect_secure
     shodan-query:

@@ -8,7 +8,7 @@ info:
     mSafe file transfer was detected.
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: msafe
   tags: detect,panel,msafe
 

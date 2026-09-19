@@ -10,7 +10,7 @@ info:
     - https://www.xwiki.org/
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: xwiki
     product: xwiki
     shodan-query:

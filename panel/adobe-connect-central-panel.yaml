@@ -11,7 +11,7 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:adobe:connect:*:*:*:*:*:*:*:*
   metadata:
-    max-request: 1
+    max-requests: 1
     vendor: adobe
     product: connect
     shodan-query:
@@ -24,7 +24,7 @@ info:
       - icon_hash="-974364617"
       - icon_hash="-1962284560"
       - title="Adobe Connect"
-  tags: adobe,panel,connect-central
+  tags: adobe,panel,connect-central,login,detect
   
 http:
   - method: GET

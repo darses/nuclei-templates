@@ -10,12 +10,12 @@ info:
     - https://i-pro.com/
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: panasonic
     product: ipro_network_disk_recorder
     shodan-query:
       - http.html_hash:-1774716666
-  tags: panel,iot,camera,panasonic,detect
+  tags: panel,iot,camera,panasonic,detect,login
 
 http:
   - method: GET

@@ -12,7 +12,7 @@ info:
     cpe: cpe:2.3:a:zohocorp:manageengine_exchange_reporter_plus:*:*:*:*:*:*:*:*
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: zohocorp
     product: manageengine_exchange_reporter_plus
     shodan-query:
@@ -22,7 +22,7 @@ info:
     fofa-query:
       - title="ManageEngine - Exchange Reporter Plus"
       - icon_hash="230963457"
-  tags: detect,panel,zoho,manageengine,zohocorp
+  tags: detect,panel,zoho,manageengine,zohocorp,login
 
 http:
   - method: GET

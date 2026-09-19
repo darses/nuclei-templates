@@ -10,7 +10,7 @@ info:
     - https://github.com/tg123/sshpiper
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     product: sshpiper
     shodan-query:
       - "SSH-2.0-SSHPiper"

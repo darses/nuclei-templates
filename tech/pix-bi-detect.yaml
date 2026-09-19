@@ -7,7 +7,7 @@ info:
   description: |
     Detects PIX BI API and extract version.
   metadata:
-    max-request: 1
+    max-requests: 1
     shodan-query:
       - http.favicon.hash:-424232490
   tags: detect,version,vtt,version

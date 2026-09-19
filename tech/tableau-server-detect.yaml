@@ -8,7 +8,7 @@ info:
     Salesforce Tableau Server was detected.
   metadata:
     verified: true
-    max-request: 1
+    max-requests: 1
     vendor: salesforce
     product: tableau_server
     shodan-query:
@@ -20,7 +20,7 @@ info:
       - "X-Tableau: Tableau Server"
       - server=="Tableau"
       - icon_hash="-1441956789"
-  tags: tech,detect,tableau
+  tags: tech,detect,tableau,discovery
 
 http:
   - method: GET
