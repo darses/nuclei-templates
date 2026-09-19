@@ -6,7 +6,7 @@ info:
   author: darses
   description: N8N
   metadata:
-    verified: true
+    verified: false
     max-requests: 1
     vendor: n8n-io
     product: n8n

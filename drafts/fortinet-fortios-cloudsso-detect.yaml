@@ -7,7 +7,7 @@ info:
   description: |
     Fortinet FortiOS FortiCloud SSO function detected.
   metadata:
-    verified: true
+    verified: false
     max-requests: 1
     vendor: fortinet
     product: fortios

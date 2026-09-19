@@ -9,7 +9,7 @@ info:
   classification:
     cpe: cpe:2.3:a:projectdiscovery:interactsh:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
+    verified: false
     max-request: 1
     vendor: projectdiscovery
     product: interactsh

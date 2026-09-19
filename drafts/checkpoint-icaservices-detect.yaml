@@ -9,7 +9,7 @@ info:
   classification:
     cve-id: todo
   metadata:
-    verified: true
+    verified: false
     max-requests: 1
     vendor: checkpoint
     product: security_gateway
