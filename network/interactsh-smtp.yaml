@@ -2,11 +2,15 @@ id: interactsh-smtp
 
 info:
   name: ProjectDiscovery Interact.sh SMTP - Detect
-  severity: info
   author: darses
+  severity: info
   description: |
     Detect Interact.sh SMTP service.
+  reference:
+    - https://github.com/projectdiscovery/interactsh
   metadata:
+    verified: true
+    max-requests: 1
     vendor: projectdiscovery
     product: interactsh
     shodan-query:
@@ -20,13 +24,14 @@ tcp:
     host:
       - "{{Hostname}}"
     
-    port: 25
+    port: 25,2525,465,587
 
     matchers:
       - type: word
+        condition: and
         words:
           - "interactsh"
-          - "STMP"
+          - "SMTP"
 
     extractors:
       - type: regex
