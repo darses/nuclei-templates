@@ -1,0 +1,43 @@
+id: fortimail-login
+
+info:
+  name: Fortinet FortiMail Login Panel - Detect
+  author: johnk3r, darses
+  severity: info
+  description: Fortinet FortiMail login panel was detected.
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+    cpe: cpe:2.3:a:fortinet:fortimail:*:*:*:*:*:*:*:*
+  metadata:
+    verified: true
+    max-request: 1
+    vendor: fortinet
+    product: fortimail
+    shodan-query:
+      - http.html_hash:974376614
+  tags: panel,fortinet,fortimail,login,discovery
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/user/login"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "<title>FortiMail</title>"
+          - "<app-root></app-root>"
+        condition: and
+
+      - type: status
+        status:
+          - 200
+
+    extractors:
+      - type: kval
+        part: header
+        kval:
+          - last_modified
