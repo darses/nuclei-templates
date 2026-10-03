@@ -1,0 +1,58 @@
+id: platypus-detect
+
+info:
+  name: WangYihang Platypus - Detect
+  author: darses
+  severity: info
+  description: |
+    WangYihang Platypus C2 detected.
+  reference:
+    - https://github.com/WangYihang/Platypus
+  metadata:
+    verified: true
+    max-requests: 3
+    vendor: wangyihang
+    product: platypus
+    shodan-query:
+      - ssl.cert.subject.cn:"platypus-ingress"
+      - ssl:"Platypus project default"
+  tags: wangyihang,platypus,termite,c2,detect,ssl
+
+ssl:
+  - address: "{{Host}}:{{Port}}"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: subject_cn
+        words:
+          - "platypus-ingress"
+
+      - type: word
+        part: issuer_cn
+        words:
+          - "Platypus project default"
+
+    extractors:
+      - type: json
+        json:
+          - ".subject_an[]"
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/api/v1/auth/info"
+      - "{{BaseURL}}/termite/127.0.0.1"
+
+    stop-at-first-match: true
+    matchers-condition: or
+    matchers:
+      - type: dsl
+        name: api
+        dsl:
+          - 'status_code == 200 && contains(content_type, "application/json") && contains(body, "\"product\":\"platypus\"")'
+
+      - type: dsl
+        name: termite
+        dsl:
+          - 'status_code == 200 && contains(content_type, "application/octet-stream") && contains(body, "github.com/WangYihang/Platypus")'
