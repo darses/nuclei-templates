@@ -1,13 +1,15 @@
 id: interactsh-smtp
 
 info:
-  name: ProjectDiscovery Interact.sh SMTP - Detect
+  name: ProjectDiscovery Interactsh SMTP Server - Detect
   author: darses
   severity: info
   description: |
-    Detect Interact.sh SMTP service.
+    Detect Interactsh SMTP service. Interactsh is used for Out-of-band Application Security Testing (OAST).
   reference:
     - https://github.com/projectdiscovery/interactsh
+  classification:
+    cpe: cpe:2.3:a:projectdiscovery:interactsh:*:*:*:*:*:*:*:*
   metadata:
     verified: true
     max-requests: 1
@@ -15,16 +17,17 @@ info:
     product: interactsh
     shodan-query:
       - product:"Interactsh SMTP Server"
-  tags: detect,network,tcp,smtp,interactsh
+      - "interactsh ESMTP Service ready"
+  tags: network,service,smtp,detect,mail,detection,tcp,discovery,interactsh
 
 tcp:
   - inputs:
       - data: "\r\n"
-    
+
     host:
       - "{{Hostname}}"
-    
-    port: 25,2525,465,587
+
+    port: 25,2525,10025,465,587
 
     matchers:
       - type: word
@@ -37,4 +40,4 @@ tcp:
       - type: regex
         group: 1
         regex:
-          - "220 ([^\\s]+) interactsh"
+          - '220\s+([^\s]+)\s+interactsh'
