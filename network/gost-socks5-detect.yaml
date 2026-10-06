@@ -1,7 +1,7 @@
-id: gost-detect
+id: gost-socks5-detect
 
 info:
-  name: GO Simple Tunnel (GOST) - Detect
+  name: GO Simple Tunnel (GOST) SOCKS5 - Detect
   author: darses
   severity: high
   description: |
@@ -107,4 +107,4 @@ code:
       - type: json
         json:
           - .proto
-# digest: 4a0a00473045022100fcbf71a016cdc21c4cec395747e681d9aca6bbe375a289ed316a1b42fdd770ab022057615b5579739a2f74bd170f2a3835cc619b3fdb46b195121deaff8e1cfa8fa2:7a9fe9e61d67fac71b7da5c648e13ad0
+# digest: 4a0a00473045022100a4e81dc2e26804dc331f4b14c1b823c7a461c5a0c04a5520cb961d372c1db78e022062605cc4b46ab745b6110935a90e0bae97862c46991f524d74650a86cded58df:7a9fe9e61d67fac71b7da5c648e13ad0
