@@ -1,0 +1,137 @@
+id: gost-ssh-detect
+
+info:
+  name: GO Simple Tunnel (GOST) SSH Listener - Detect
+  author: darses
+  severity: high
+  description: |
+    GO Simple Tunnel (GOST) SSH service was detected via unauthenticated 'none' authentication bypass and proprietary 'ping' global request or 'gost-tunnel' channel confirmation.
+  reference:
+    - https://github.com/go-gost/gost
+    - https://gost.run
+  metadata:
+    verified: true
+    max-requests: 2
+    vendor: gost
+    product: gost
+    shodan-query:
+      - product:"Go SSH"
+  tags: network,tcp,code,ssh,proxy,tunnel,c2,gost,detect
+
+flow: tcp(1) && code(1)
+
+tcp:
+  - inputs:
+      - data: "SSH-2.0-Nuclei\r\n"
+        read: 20
+
+    host:
+      - "{{Hostname}}"
+    port: 22, 443, 2222
+
+    matchers:
+      - type: word
+        part: raw
+        words:
+          - "SSH-2.0-Go"
+
+code:
+  - engine:
+      - py
+      - python3
+
+    source: |
+      import os, socket, json, sys
+
+      host = os.getenv("Host")
+      port = int(os.getenv("Port") or 22)
+
+      result = {
+          "gost": False,
+          "host": host,
+          "port": port,
+          "banner": "",
+          "auth_bypass": False,
+          "mode": "unknown",
+          "ping_pong": False,
+          "channel_tunnel": False,
+          "channel_direct_tcpip": False
+      }
+
+      try:
+          import paramiko
+          sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+          sock.settimeout(5.0)
+          sock.connect((host, port))
+
+          t = paramiko.Transport(sock)
+          t.banner_timeout = 5.0
+          t.start_client(timeout=5.0)
+
+          result["banner"] = str(t.remote_version)
+
+          # Test None authentication
+          try:
+              t.auth_none("root")
+          except Exception:
+              pass
+
+          if t.is_authenticated():
+              # Probe 1: Ping global request (GOST v2/v3 heartbeat)
+              try:
+                  ping_res = t.global_request("ping", wait=True)
+                  if ping_res is not None:
+                      result["ping_pong"] = True
+              except Exception:
+                  pass
+
+              # Probe 2: Proprietary 'gost-tunnel' channel (SSHTunnelListener)
+              try:
+                  chan = t.open_channel("gost-tunnel", timeout=3.0)
+                  if chan is not None:
+                      result["channel_tunnel"] = True
+                      result["mode"] = "tunnel"
+                      chan.close()
+              except Exception:
+                  pass
+
+              # Probe 3: 'direct-tcpip' channel (SSHForwardHandler / forward+ssh)
+              try:
+                  chan_tcp = t.open_channel("direct-tcpip", dest_addr=("127.0.0.1", 80), src_addr=("127.0.0.1", 12345), timeout=3.0)
+                  if chan_tcp is not None:
+                      result["channel_direct_tcpip"] = True
+                      if result["mode"] == "unknown":
+                          result["mode"] = "forward+ssh"
+                      chan_tcp.close()
+              except Exception:
+                  pass
+
+              if result["ping_pong"] or result["channel_tunnel"] or result["channel_direct_tcpip"]:
+                  result["gost"] = True
+
+          t.close()
+      except Exception:
+          pass
+
+      if result["gost"]:
+          print(json.dumps(result))
+
+    matchers:
+      - type: word
+        name: gost-ssh-confirmed
+        words:
+          - '"gost": true'
+
+    extractors:
+      - type: json
+        json:
+          - .mode
+
+      - type: json
+        json:
+          - .ping_pong
+
+      - type: json
+        json:
+          - .channel_tunnel
+# digest: 4a0a00473045022100b5872d1a4ff37a860e5e387d8c5395e2335527e9b6744a3b6f967b7f9d4a6de80220183b7ca278d64da8cfe64ab37895be7c1e80f12f0b3b0202160d6609cb682e11:7a9fe9e61d67fac71b7da5c648e13ad0
