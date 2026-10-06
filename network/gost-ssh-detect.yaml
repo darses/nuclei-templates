@@ -34,6 +34,7 @@ tcp:
         part: raw
         words:
           - "SSH-2.0-Go"
+        internal: true
 
 code:
   - engine:
@@ -41,22 +42,12 @@ code:
       - python3
 
     source: |
-      import os, socket, json, sys
+      import os, socket, sys, logging
+      logging.getLogger("paramiko").setLevel(logging.CRITICAL)
 
       host = os.getenv("Host", "").strip("[]")
       port = int(os.getenv("Port") or 22)
-
-      result = {
-          "gost": False,
-          "host": host,
-          "port": port,
-          "banner": "",
-          "auth_bypass": False,
-          "mode": "unknown",
-          "ping_pong": False,
-          "channel_tunnel": False,
-          "channel_direct_tcpip": False
-      }
+      mode = "unknown"
 
       try:
           import paramiko
@@ -65,8 +56,6 @@ code:
           t = paramiko.Transport(sock)
           t.banner_timeout = 5.0
           t.start_client(timeout=5.0)
-
-          result["banner"] = str(t.remote_version)
 
           # Test None authentication
           try:
@@ -79,57 +68,46 @@ code:
               try:
                   ping_res = t.global_request("ping", wait=True)
                   if ping_res is not None:
-                      result["ping_pong"] = True
+                      mode = "tunnel"
               except Exception:
                   pass
 
               # Probe 2: Proprietary 'gost-tunnel' channel (SSHTunnelListener)
-              try:
-                  chan = t.open_channel("gost-tunnel", timeout=3.0)
-                  if chan is not None:
-                      result["channel_tunnel"] = True
-                      result["mode"] = "tunnel"
-                      chan.close()
-              except Exception:
-                  pass
+              if mode == "unknown":
+                  try:
+                      chan = t.open_channel("gost-tunnel", timeout=3.0)
+                      if chan is not None:
+                          mode = "tunnel"
+                          chan.close()
+                  except Exception:
+                      pass
 
               # Probe 3: 'direct-tcpip' channel (SSHForwardHandler / forward+ssh)
-              try:
-                  chan_tcp = t.open_channel("direct-tcpip", dest_addr=("127.0.0.1", 80), src_addr=("127.0.0.1", 12345), timeout=3.0)
-                  if chan_tcp is not None:
-                      result["channel_direct_tcpip"] = True
-                      if result["mode"] == "unknown":
-                          result["mode"] = "forward+ssh"
-                      chan_tcp.close()
-              except Exception:
-                  pass
-
-              if result["ping_pong"] or result["channel_tunnel"] or result["channel_direct_tcpip"]:
-                  result["gost"] = True
+              if mode == "unknown":
+                  try:
+                      chan_tcp = t.open_channel("direct-tcpip", dest_addr=("127.0.0.1", 80), src_addr=("127.0.0.1", 12345), timeout=3.0)
+                      if chan_tcp is not None:
+                          mode = "forward+ssh"
+                          chan_tcp.close()
+                  except Exception:
+                      pass
 
           t.close()
       except Exception:
           pass
 
-      if result["gost"]:
-          print(json.dumps(result))
+      if mode != "unknown":
+          print(mode)
 
     matchers:
       - type: word
-        name: gost-ssh-confirmed
         words:
-          - '"gost": true'
+          - "tunnel"
+          - "forward+ssh"
+        condition: or
 
     extractors:
-      - type: json
-        json:
-          - .mode
-
-      - type: json
-        json:
-          - .ping_pong
-
-      - type: json
-        json:
-          - .channel_tunnel
-# digest: 490a0046304402205241bd13d931c01e83eb8b81598a1e2d222b6db00b332fdaf150f99d21cfa820022028c68c0f2b57ace77ed763719a812bd75b300ac4fbd28e28dd0c4785699aeb86:7a9fe9e61d67fac71b7da5c648e13ad0
+      - type: regex
+        regex:
+          - "^(tunnel|forward\\+ssh)$"
+# digest: 4b0a00483046022100b37af6ac33640baecc8fe8f5ee5fa5080250c2dfd64531872a21ac11239b4fb9022100e45d3274d5a73849f91ecce398c0d397baf7369d99a9a10fd231927f32bab952:7a9fe9e61d67fac71b7da5c648e13ad0
