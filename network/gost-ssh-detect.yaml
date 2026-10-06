@@ -43,7 +43,7 @@ code:
     source: |
       import os, socket, json, sys
 
-      host = os.getenv("Host")
+      host = os.getenv("Host", "").strip("[]")
       port = int(os.getenv("Port") or 22)
 
       result = {
@@ -60,9 +60,7 @@ code:
 
       try:
           import paramiko
-          sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-          sock.settimeout(5.0)
-          sock.connect((host, port))
+          sock = socket.create_connection((host, port), timeout=5.0)
 
           t = paramiko.Transport(sock)
           t.banner_timeout = 5.0
@@ -134,4 +132,4 @@ code:
       - type: json
         json:
           - .channel_tunnel
-# digest: 4a0a00473045022100b5872d1a4ff37a860e5e387d8c5395e2335527e9b6744a3b6f967b7f9d4a6de80220183b7ca278d64da8cfe64ab37895be7c1e80f12f0b3b0202160d6609cb682e11:7a9fe9e61d67fac71b7da5c648e13ad0
+# digest: 490a0046304402205241bd13d931c01e83eb8b81598a1e2d222b6db00b332fdaf150f99d21cfa820022028c68c0f2b57ace77ed763719a812bd75b300ac4fbd28e28dd0c4785699aeb86:7a9fe9e61d67fac71b7da5c648e13ad0
