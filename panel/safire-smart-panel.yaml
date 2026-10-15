@@ -43,7 +43,7 @@ http:
 
     extractors:
       - type: regex
-        name: version
+        name: build_date
         group: 1
         regex:
           - '(?i)data-main="js/index\.js\?v=([0-9.]+)"'
