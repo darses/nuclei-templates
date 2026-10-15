@@ -1,5 +1,0 @@
-{
-  "files.readonlyInclude": {
-    "/var/home/darses/nuclei-templates/**": true
-  }
-}
