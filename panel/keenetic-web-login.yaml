@@ -1,0 +1,37 @@
+id: keenetic-web-login
+
+info:
+  name: Keenetic Web Login Panel - Detect
+  author: dhiyaneshDK,darses
+  severity: info
+  description: |
+    Keenetic Web login panel was detected across legacy Keenetic Web and modern KeeneticOS Web Panel releases.
+  reference:
+    - https://www.exploit-db.com/ghdb/6817
+    - https://keenetic.com
+  metadata:
+    verified: true
+    max-request: 1
+    vendor: keenetic
+    product: keeneticos
+    shodan-query:
+      - 'http.title:"KeeneticOS Web Panel"'
+      - 'http.title:"Keenetic Web"'
+      - "http.favicon.hash:547282364"
+  tags: panel,keenetic,router,edb,discovery
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/login"
+
+    matchers-condition: and
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - "(?i)<title[^>]*>Keenetic(OS)? Web( Panel)?</title>"
+
+      - type: status
+        status:
+          - 200
